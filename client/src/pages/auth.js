@@ -9,16 +9,39 @@ export const Auth = () => {
   );
 };
 
-const Login = () => {};
-
-const Register = () => {
+const Login = ({}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  return (
+    <Form
+      username={username}
+      setUsername={setUsername}
+      password={password}
+      setPassword={setPassword}
+      label="Login"
+    />
+  );
+};
 
+const Register = ({}) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  return (
+    <Form
+      username={username}
+      setUsername={setUsername}
+      password={password}
+      setPassword={setPassword}
+      label="Register"
+    />
+  );
+};
+
+const Form = ({ username, setUsername, password, setPassword, label }) => {
   return (
     <div className="auth-comtainer">
       <form>
-        <h2>Register</h2>
+        <h2>{label}</h2>
         <div className="from-group">
           <label htmlFor="username">Username:</label>
           <input
@@ -37,7 +60,7 @@ const Register = () => {
               setPassword(event.target.value);
             }}></input>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">{label}</button>
       </form>
     </div>
   );
